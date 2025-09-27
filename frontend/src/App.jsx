@@ -1,20 +1,23 @@
+import React from "react";
 import { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Navbar from "./components/Navbar"
+import Menu from "./pages/Menu";
+import Account from "./pages/Account";
+import Checkout from "./pages/Checkout";
 
 function App() {
-  const [message, setMessage] = useState('Loading...');
-
-  useEffect(() => {
-    fetch('/api/test') // Uses the Vite proxy to backend
-      .then((res) => res.json())
-      .then((data) => setMessage(data.message))
-      .catch((err) => setMessage('Error fetching data'));
-  }, []);
-
   return (
-    <div style={{ textAlign: 'center', marginTop: '50px' }}>
-      <h1>Restaurant Project</h1>
-      <p>{message}</p>
-    </div>
+    <Router>
+      <Navbar/>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/menu" element={<Menu />} />
+        <Route path="/account" element={<Account />} />
+        <Route path="/checkout" element={<Checkout />} />
+      </Routes>
+    </Router>
   );
 }
 
