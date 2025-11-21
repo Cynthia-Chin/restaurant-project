@@ -6,18 +6,22 @@ import Navbar from "./components/Navbar"
 import Menu from "./pages/Menu";
 import Account from "./pages/Account";
 import Checkout from "./pages/Checkout";
+import CartProvider from "./context/CartProvider";
+
 
 function App() {
   return (
-    <Router>
-      <Navbar/>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/menu" element={<Menu />} />
-        <Route path="/account" element={<Account />} />
-        <Route path="/checkout" element={<Checkout />} />
-      </Routes>
-    </Router>
+    <CartProvider>
+      <Router>
+        <Navbar></Navbar>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/menu" element={<Menu />} />
+          <Route path="/account" element={<Account />} />
+          <Route path="/checkout" element={<Checkout />} />
+        </Routes>
+      </Router>
+    </CartProvider>
   );
 }
 

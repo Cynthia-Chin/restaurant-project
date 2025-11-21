@@ -1,0 +1,70 @@
+.menu-page {
+  padding: 80px 20px; /* space below fixed navbar */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.category-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.category-buttons button {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border: 1px solid #333;
+  background: white;
+}
+
+.category-buttons button.active {
+  background-color: #333;
+  color: white;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.menu-card {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.menu-card-img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.menu-card-info {
+  padding: 1rem;
+}
+
+.menu-card-info .price {
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+.add-icon {
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  color: green;
+  padding: 5px 10px;
+  border: 1px solid green;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.add-icon:hover {
+  transform: scale(1.2);
+  background-color: #e0ffe0;
+}
