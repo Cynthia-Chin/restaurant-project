@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { CartContext } from "../context/CartContext";
 import '../styles/navbar.css';
 
-function Navbar() {
+function Navbar({openCart}) {
   const [isOpen, setIsOpen] = useState(false);
+  const { cartItems } = useContext(CartContext);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -19,6 +21,12 @@ function Navbar() {
           <Link to="/" className="logo">Restaurant</Link>
         </div>
         <div className="navbar-right">
+          {/*Cart button - only show when cart has items*/}
+          {cartItems.length > 0 && (
+            <button className="cart-button" onClick={openCart}>
+              🛒 Cart ({cartItems.length})
+            </button>
+          )}
         </div>
       </nav>
       {/* Side panel */}

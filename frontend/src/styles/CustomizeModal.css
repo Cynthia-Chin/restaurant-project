@@ -1,0 +1,101 @@
+/* src/styles/CustomizeModal.css */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 500px;
+  max-height: 85vh;
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  overflow-y: auto;
+  z-index: 1100;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  cursor: default;
+}
+
+.modal h2 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: #333;
+  font-size: 24px;
+}
+
+.modal > p {
+  color: #666;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.custom-category {
+  margin-bottom: 20px;
+  padding: 15px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+.custom-category h4 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #333;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.custom-category label {
+  display: flex;
+  align-items: center;
+  padding: 8px 10px;
+  margin-bottom: 6px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.2s;
+}
+
+.custom-category label:hover {
+  background: #fff;
+}
+
+.custom-category input[type="radio"],
+.custom-category input[type="checkbox"] {
+  margin-right: 10px;
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+}
+
+.modal button {
+  width: 100%;
+  padding: 14px;
+  background: #ff6347;
+  border: none;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background 0.3s;
+}
+
+.modal button:hover:not(:disabled) {
+  background: #e5533d;
+}
+
+.modal button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
