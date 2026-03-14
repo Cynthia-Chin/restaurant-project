@@ -1,0 +1,45 @@
+.order-confirmation-page {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.order-confirmation-id {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.order-confirmation-card {
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.order-confirmation-card p {
+  margin: 0.6rem 0;
+  padding: 0;
+}
+
+.order-confirmation-error {
+  margin-top: 1rem;
+  border: 1px solid #f0c4c4;
+  background: #fff4f4;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.order-confirmation-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.order-confirmation-actions a {
+  text-decoration: none;
+  padding: 0.6rem 0.9rem;
+  background: #333;
+  color: #fff;
+  border-radius: 8px;
+}

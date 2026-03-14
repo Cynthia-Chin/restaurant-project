@@ -9,6 +9,8 @@
   box-shadow: -2px 0 5px rgba(0,0,0,0.3);
   transition: right 0.3s ease;
   z-index: 1000;
+  visibility: hidden;
+  pointer-events: none;
 
   display: flex;
   flex-direction: column; /* stack header, items, footer */
@@ -16,6 +18,8 @@
 
 .cart-drawer.open {
   right: 0;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 .cart-drawer-overlay {
@@ -78,6 +82,12 @@
   flex-shrink: 0; /* keep footer visible */
   padding-bottom: 50px;
 }
+
+.checkout-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 .cart-button {
   background: #ff6347;
   color: white;
@@ -85,4 +95,7 @@
   padding: 8px 12px;
   border-radius: 5px;
   cursor: pointer;
+  white-space: nowrap;
+  position: relative;
+  z-index: 1001;
 }

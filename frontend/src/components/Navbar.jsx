@@ -1,11 +1,13 @@
 import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 import '../styles/navbar.css';
 
 function Navbar({openCart}) {
   const [isOpen, setIsOpen] = useState(false);
   const { cartItems } = useContext(CartContext);
+  const location = useLocation();
+  const isMenuPage = location.pathname === "/menu";
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -21,10 +23,9 @@ function Navbar({openCart}) {
           <Link to="/" className="logo">Restaurant</Link>
         </div>
         <div className="navbar-right">
-          {/*Cart button - only show when cart has items*/}
-          {cartItems.length > 0 && (
+          {isMenuPage && (
             <button className="cart-button" onClick={openCart}>
-              🛒 Cart ({cartItems.length})
+              Cart {cartItems.length > 0 ? `(${cartItems.length})` : ""}
             </button>
           )}
         </div>

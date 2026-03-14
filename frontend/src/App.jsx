@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar"
 import Menu from "./pages/Menu";
 import Account from "./pages/Account";
 import Checkout from "./pages/Checkout";
+import OrderConfirmation from "./pages/OrderConfirmation";
 import CartProvider from "./context/CartProvider";
 import CartDrawer from "./components/CartDrawer";
 import CustomizeModal from "./components/CustomizeModal";
@@ -26,6 +27,7 @@ function App() {
           <Route path="/menu" element={<Menu openCustomize={setCustomizeModalItem} />} />
           <Route path="/account" element={<Account />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/order-confirmation/:orderId" element={<OrderConfirmation />} />
         </Routes>
 
         <CartDrawer

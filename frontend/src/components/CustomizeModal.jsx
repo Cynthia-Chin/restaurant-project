@@ -8,6 +8,7 @@ function CustomizeModal({ item, close, editIndex = null, initialSelections = {} 
   const REQUIRED_CATEGORIES = ["Dressing Choice"];
 
   const [selected, setSelected] = useState(initialSelections);
+  const [quantity, setQuantity] = useState(1);
 
   const handleSelect = (category, option, multi) => {
     setSelected((prev) => {
@@ -44,6 +45,7 @@ function CustomizeModal({ item, close, editIndex = null, initialSelections = {} 
       ...item,
       selectedOptions: selected,
       totalPrice,
+      quantity,
     };
     if (editIndex !== null) updateCartItem(editIndex, cartItem);
     else addToCart(cartItem);
@@ -56,6 +58,28 @@ function CustomizeModal({ item, close, editIndex = null, initialSelections = {} 
       <div className="modal">
         <h2>{item.name}</h2>
         <p>Base price: ${Number(item.price).toFixed(2)}</p>
+
+        {/* Quantity Selector */}
+        <div className="quantity-selector">
+          <label>Quantity:</label>
+          <div className="quantity-controls">
+            <button 
+              type="button"
+              onClick={() => setQuantity(Math.max(1, quantity - 1))}
+              className="quantity-btn"
+            >
+              −
+            </button>
+            <span className="quantity-display">{quantity}</span>
+            <button 
+              type="button"
+              onClick={() => setQuantity(quantity + 1)}
+              className="quantity-btn"
+            >
+              +
+            </button>
+          </div>
+        </div>
 
         {item.customizations?.map((category) => {
           const multi = category.category_name === "Add-on";
@@ -97,7 +121,7 @@ function CustomizeModal({ item, close, editIndex = null, initialSelections = {} 
           style={{ opacity: isValidSelection ? 1 : 0.5 }}
         >
           {isValidSelection
-            ? `Add to Cart – $${totalPrice.toFixed(2)}`
+            ? `Add ${quantity} to Cart – $${(totalPrice * quantity).toFixed(2)}`
             : "Please complete required options"}
         </button>
       </div>

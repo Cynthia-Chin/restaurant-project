@@ -13,10 +13,10 @@ const CartProvider = ({ children }) => {
 
       if (existing) {
         return prev.map(i =>
-          i === existing ? { ...i, quantity: i.quantity + 1 } : i
+          i === existing ? { ...i, quantity: i.quantity + (item.quantity || 1) } : i
         );
       }
-      return [...prev, { ...item, quantity: 1 }];
+      return [...prev, { ...item, quantity: item.quantity || 1 }];
     });
   };
 
@@ -28,8 +28,12 @@ const CartProvider = ({ children }) => {
     setCartItems(prev => prev.map((item, i) => (i === index ? updatedItem : item)));
   };
 
+  const clearCart = () => {
+    setCartItems([]);
+  };
+
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, updateCartItem }}>
+    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, updateCartItem, clearCart }}>
       {children}
     </CartContext.Provider>
   );

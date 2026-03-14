@@ -1,20 +1,17 @@
 // src/components/CartDrawer.jsx
 import React, { useContext } from "react";
 import { CartContext } from "../context/CartContext";
+import { useNavigate } from "react-router-dom";
 import "../styles/CartDrawer.css";
 
 function CartDrawer({ isOpen, close, openEdit }) {
   const { cartItems, removeFromCart } = useContext(CartContext);
+  const navigate = useNavigate();
 
   const total = cartItems.reduce(
     (sum, item) => sum + Number(item.totalPrice || item.price) * item.quantity,
     0
   );
-
-  // Hide the drawer if cart is empty
-  if (cartItems.length === 0) {
-    return null;
-  }
 
   return (
     <>
@@ -56,7 +53,16 @@ function CartDrawer({ isOpen, close, openEdit }) {
         </div>
         <div className="cart-footer">
           <h3>Total: ${total.toFixed(2)}</h3>
-          <button className="checkout-button">Checkout</button>
+          <button
+            className="checkout-button"
+            disabled={cartItems.length === 0}
+            onClick={() => {
+              close();
+              navigate("/checkout");
+            }}
+          >
+            Checkout
+          </button>
         </div>
       </div>
     </>

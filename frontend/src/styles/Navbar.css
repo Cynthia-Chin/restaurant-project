@@ -10,29 +10,33 @@ body {
   left: 0;
   width: 100%;
   height: 60px;
+  box-sizing: border-box;
   background-color: #333;
   color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
+  gap: 12px;
   z-index: 1000;
 }
 
 .navbar-left {
-  flex: 1;
+  flex: 0 0 auto;
   display: flex;
   justify-content: flex-start;
+  align-items: center;
 }
 
 .navbar-center {
-  flex: 1;
+  flex: 1 1 auto;
   display: flex;
   justify-content: center;
+  min-width: 0;
 }
 
 .navbar-right {
-  flex: 1;
+  flex: 0 0 auto;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -44,6 +48,7 @@ body {
   text-decoration: none;
   font-size: 1.5rem;
   font-weight: bold;
+  white-space: nowrap;
 }
 
 .hamburger {
